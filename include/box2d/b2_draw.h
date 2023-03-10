@@ -40,6 +40,10 @@ struct B2_API b2Color
 		r = rIn; g = gIn; b = bIn; a = aIn;
 	}
 
+    operator glm::vec4() const {
+        return glm::vec4(r, g, b, a);
+    }
+
 	float r, g, b, a;
 };
 

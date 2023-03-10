@@ -27,6 +27,7 @@
 
 #include "b2_api.h"
 #include "b2_settings.h"
+#include <glm/glm.hpp>
 
 /// This function is used to ensure that a floating point number is not a NaN or infinity.
 inline bool b2IsValid(float x)
@@ -42,6 +43,9 @@ struct B2_API b2Vec2
 {
 	/// Default constructor does nothing (for performance).
 	b2Vec2() = default;
+
+    // Construct via a glm::vec2
+    b2Vec2(const glm::vec2& v2) : x(v2.x), y(v2.y) {}
 
 	/// Construct using coordinates.
 	b2Vec2(float xIn, float yIn) : x(xIn), y(yIn) {}
@@ -124,6 +128,10 @@ struct B2_API b2Vec2
 	{
 		return b2Vec2(-y, x);
 	}
+
+    operator glm::vec2() const {
+        return glm::vec2(x, y);
+    }
 
 	float x, y;
 };

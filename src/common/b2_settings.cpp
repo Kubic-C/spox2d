@@ -23,6 +23,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "box2d/b2_settings.h"
+#include "logger.hpp"
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
@@ -43,7 +44,7 @@ void b2Free_Default(void* mem)
 // You can modify this to use your logging facility.
 void b2Log_Default(const char* string, va_list args)
 {
-	vprintf(string, args);
+	spk::log.log(string);
 }
 
 FILE* b2_dumpFile = nullptr;
