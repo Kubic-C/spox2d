@@ -89,6 +89,12 @@ class B2_API b2Contact
 {
 public:
 
+    /// get the entity of fixture A's body
+    flecs::entity GetEntityA();
+
+    // get the entity of fixture B's body
+    flecs::entity GetEntityB();
+
 	/// Get the contact manifold. Do not modify the manifold unless you understand the
 	/// internals of Box2D.
 	b2Manifold* GetManifold();

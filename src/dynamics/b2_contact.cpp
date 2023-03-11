@@ -250,3 +250,11 @@ void b2Contact::Update(b2ContactListener* listener)
 		listener->PreSolve(this, &oldManifold);
 	}
 }
+
+flecs::entity b2Contact::GetEntityA() {
+    return m_fixtureA->GetBody()->GetUserData().entity;
+}
+
+flecs::entity b2Contact::GetEntityB() {
+    return m_fixtureB->GetBody()->GetUserData().entity;
+}

@@ -24,9 +24,7 @@ include(GNUInstallDirs)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-if (BOX2D_USER_SETTINGS)
-	add_compile_definitions(B2_USER_SETTINGS)
-endif()
+target_compile_definitions(spock_engine PUBLIC B2_USER_SETTINGS)
 
 add_subdirectory(src)
 
