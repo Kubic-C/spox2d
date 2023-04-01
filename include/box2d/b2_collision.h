@@ -215,6 +215,17 @@ struct B2_API b2AABB
 		return result;
 	}
 
+    /// Does this aabb contain this point
+    bool Contains(const b2Vec2& point) const 
+    {
+		bool result = true;
+		result = result && lowerBound.x <= point.x;
+		result = result && lowerBound.y <= point.y;
+		result = result && upperBound.x >= point.x;
+		result = result && upperBound.y >= point.y;
+		return result;
+    }
+
 	bool RayCast(b2RayCastOutput* output, const b2RayCastInput& input) const;
 
 	b2Vec2 lowerBound;	///< the lower vertex
